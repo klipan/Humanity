@@ -36,11 +36,11 @@ class QaTask(unittest.TestCase):
 
     def test_3_without_password(self):
         H = Humanity(self.driver)
-        H.LoginWithoutPassword("test@test.com")
+        H.LoginWithoutPassword(Parameters.username)
 
     def test_4_without_username(self):
         H = Humanity(self.driver)
-        H.LoginWithoutUsername("test123!")
+        H.LoginWithoutUsername(Parameters.password)
 
     # def test_5_invalid_username(self):
     #     H = Humanity(self.driver)
@@ -54,9 +54,17 @@ class QaTask(unittest.TestCase):
         H = Humanity(self.driver)
         H.Login(Parameters.username, Parameters.password)
 
-    def test_7_add_employee(self):
+    def test_7_add_employee_empty_fields(self):
         H = Humanity(self.driver)
         H.StaffTab()
+        H.AddEmployeesEmptyFields()
+
+    def test_8_add_employee_with_email_only(self):
+        H = Humanity(self.driver)
+        H.AddEmployeesOnlyEmail()
+
+    def test_9_add_employee(self):
+        H = Humanity(self.driver)
         H.AddEmployees(Parameters.firstName, Parameters.lastName)
 
     @classmethod
