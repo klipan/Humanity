@@ -48,7 +48,7 @@ class QaTask(unittest.TestCase):
 
     def test_5_invalid_password(self):
         H = Humanity(self.driver)
-        H.LoginWithInvalidUsername(Parameters.username, "test456$")
+        H.LoginWithInvalidPassword(Parameters.username, "test456$")
 
     def test_6_login(self):
         H = Humanity(self.driver)

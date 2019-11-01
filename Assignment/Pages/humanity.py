@@ -33,13 +33,13 @@ class Humanity:
         self.driver.find_element_by_xpath(Locators.password).clear()
         self.driver.refresh()
 
-    def LoginWithInvalidUsername(self, username, password):
-        self.driver.find_element_by_css_selector(Locators.username).send_keys(username)
-        self.driver.find_element_by_xpath(Locators.password).send_keys(password)
-        self.driver.find_element_by_xpath(Locators.Log_in).click()
-        element = self.driver.find_element_by_xpath(Locators.Error_message)
-        element.is_displayed()
-        self.driver.refresh()
+    # def LoginWithInvalidUsername(self, username, password):
+    #     self.driver.find_element_by_css_selector(Locators.username).send_keys(username)
+    #     self.driver.find_element_by_xpath(Locators.password).send_keys(password)
+    #     self.driver.find_element_by_xpath(Locators.Log_in).click()
+    #     element = self.driver.find_element_by_xpath(Locators.Error_message)
+    #     element.is_displayed()
+    #     self.driver.refresh()
 
     def LoginWithInvalidPassword(self, username, password):
         self.driver.find_element_by_css_selector(Locators.username).send_keys(username)
@@ -74,9 +74,3 @@ class Humanity:
             EC.element_to_be_clickable((By.CSS_SELECTOR, Locators.EmployeeAdded)))
         element.is_displayed()
 
-    # def TimeClock(self):
-    #     self.driver.find_element_by_xpath(Locators.Time_Clock).click()
-    #     element = WebDriverWait(self.driver, 20).until(
-    #         EC.element_to_be_clickable((By.XPATH, Locators.Clock_In)))
-    #     element.is_displayed()
-    #     assert self.driver.title == 'Timeclock - Overview - Humanity'
