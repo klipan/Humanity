@@ -22,3 +22,4 @@ class Locators:
     last_added_user = "//a[contains(text(), 'Camilo Cienfuegos')]"
     Error_message_addEmployee = "//div[contains(text(),'Add at least one employee')]"
     Error_message_Email = "//div[contains(text(), 'Email already taken or Invalid!')]"
+    Error_message_LastNameOnly = "//div[contains(text(), 'First Name cannot be left empty')]"

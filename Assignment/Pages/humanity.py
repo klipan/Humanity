@@ -73,11 +73,19 @@ class Humanity:
         element.is_displayed()
         self.driver.refresh()
 
-    def AddEmployeesOnlyEmail(self):
+    def AddEmployeesUsedEmail(self):
         self.driver.find_element_by_css_selector(Locators.email).send_keys(Parameters.username)
         self.driver.find_element_by_xpath(Locators.Save_Employees).click()
         element = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, Locators.Error_message_Email)))
+        element.is_displayed()
+        self.driver.refresh()
+
+    def AddEmployeeOnlyLastName(self,last_name):
+        self.driver.find_element_by_xpath(Locators.last_name).send_keys(last_name)
+        self.driver.find_element_by_xpath(Locators.Save_Employees).click()
+        element = WebDriverWait(self.driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, Locators.Error_message_LastNameOnly)))
         element.is_displayed()
         self.driver.refresh()
 
@@ -89,5 +97,5 @@ class Humanity:
             EC.element_to_be_clickable((By.CSS_SELECTOR, Locators.EmployeeAdded)))
         element.is_displayed()
         self.driver.find_element_by_xpath(Locators.All_Staff_page).click()
-        assert self.driver.find_element_by_xpath(Locators.last_added_user).text == "Camilo Cienfuegos"
+        assert self.driver.find_element_by_xpath(Locators.last_added_user).text == Parameters.firstName + " " + Parameters.lastName
 

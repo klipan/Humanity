@@ -18,7 +18,7 @@ class QaTask(unittest.TestCase):
         cls.driver.implicitly_wait(10)
         print("Welcome to the QA task")
 
-    def test_1_page_is_up(self):
+    def test_0_page_is_up(self):
         # if page loads within load timeout verifies title and link
         # asserts page status at the end
         pagestatus = "page loaded"
@@ -30,15 +30,15 @@ class QaTask(unittest.TestCase):
             pagestatus = ex.msg
         self.assertEqual("page loaded", pagestatus)
 
-    def test_2_without_credentials(self):
+    def test_1_without_credentials(self):
         H = Humanity(self.driver)
         H.LoginWithoutCredentials()
 
-    def test_3_without_password(self):
+    def test_2_without_password(self):
         H = Humanity(self.driver)
         H.LoginWithoutPassword(Parameters.username)
 
-    def test_4_without_username(self):
+    def test_3_without_username(self):
         H = Humanity(self.driver)
         H.LoginWithoutUsername(Parameters.password)
 
@@ -46,22 +46,26 @@ class QaTask(unittest.TestCase):
     #     H = Humanity(self.driver)
     #     H.LoginWithInvalidUsername("test@test123.com", Parameters.password)
 
-    def test_5_invalid_password(self):
+    def test_4_invalid_password(self):
         H = Humanity(self.driver)
         H.LoginWithInvalidPassword(Parameters.username, "test456$")
 
-    def test_6_login(self):
+    def test_5_login(self):
         H = Humanity(self.driver)
         H.Login(Parameters.username, Parameters.password)
 
-    def test_7_add_employee_empty_fields(self):
+    def test_6_add_employee_empty_fields(self):
         H = Humanity(self.driver)
         H.StaffTab()
         H.AddEmployeesEmptyFields()
 
-    def test_8_add_employee_with_email_only(self):
+    def test_7_add_employee_used_email(self):
         H = Humanity(self.driver)
-        H.AddEmployeesOnlyEmail()
+        H.AddEmployeesUsedEmail()
+
+    def test_8_add_employee_only_last_name(self):
+        H = Humanity(self.driver)
+        H.AddEmployeeOnlyLastName(Parameters.lastName)
 
     def test_9_add_employee(self):
         H = Humanity(self.driver)
