@@ -52,19 +52,21 @@ Structure of the project is:
    ├── Parameters
    |   └── parameters.py
    ├── Tests
+   |   ├── Reports
    |   └── Qatask.py
    └── README.txt
 
 ```
 
 Here's a brief explanation of the files:
-* **driver.py**: Define code which is necessary for starting our application (Desired Capabilities are writen here)
-* **Locators**: Place where locators are stored
+* **parameters.py**: File where parameters used for this test are stored
+* **locators**: Place where locators are stored
 * **humanity**: Place where our methods are written
 * **QAtask**: Python file in which we are combining our methods and making tests
+* **Reports**: Place where reports are stored.
 
 To run test cases:
 ```
 1. Open QAtask.py file
-2. Right click inside of it and select "Run 'Unittest for QAtask.py'"
+2. Right click inside of it and select "Run 'Unittest for QAtask.py'" or open terminal and type "python QAtask.py"
 ```

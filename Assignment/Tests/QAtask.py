@@ -42,19 +42,19 @@ class QaTask(unittest.TestCase):
         H = Humanity(self.driver)
         H.LoginWithoutUsername("test123!")
 
-    def test_5_invalid_username(self):
-        H = Humanity(self.driver)
-        H.LoginWithInvalidUsername("test@test123.com", Parameters.password)
+    # def test_5_invalid_username(self):
+    #     H = Humanity(self.driver)
+    #     H.LoginWithInvalidUsername("test@test123.com", Parameters.password)
 
-    def test_6_invalid_password(self):
+    def test_5_invalid_password(self):
         H = Humanity(self.driver)
         H.LoginWithInvalidUsername(Parameters.username, "test456$")
 
-    def test_7_login(self):
+    def test_6_login(self):
         H = Humanity(self.driver)
         H.Login(Parameters.username, Parameters.password)
 
-    def test_8_add_employee(self):
+    def test_7_add_employee(self):
         H = Humanity(self.driver)
         H.StaffTab()
         H.AddEmployees(Parameters.firstName, Parameters.lastName)
@@ -67,4 +67,4 @@ class QaTask(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner("./Assignment/Reports"))
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner("./Reports"))
